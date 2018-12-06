@@ -19,7 +19,6 @@ export default {
     onInputChange() {
       clearTimeout(this.typingTimer);
       this.typingTimer = setTimeout(() => {
-        console.log('asd');
         this.$emit('handleInput', this.$refs.input.value)
       }, 300);
     }
