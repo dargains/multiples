@@ -1,6 +1,9 @@
 <template>
   <main id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <figure>
+      <img alt="Renato Miguel" src="./assets/renato.jpg">
+    </figure>
+    <h1>Múltiplos do Renatinho</h1>
     <Home />
   </main>
 </template>
@@ -24,5 +27,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  margin: 20px auto;
+  font-size: 40px;
+}
+figure {
+  margin: 0 auto;
+  width: 200px;
 }
 </style>
