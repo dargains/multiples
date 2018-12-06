@@ -1,9 +1,9 @@
 <template>
   <main id="app">
-    <figure>
-      <img alt="Renato Miguel" src="./assets/renato.jpg">
-    </figure>
-    <h1>Múltiplos do Renatinho</h1>
+    <!-- <figure> -->
+      <!-- <img alt="Renato Miguel" src="./assets/renato.jpg"> -->
+    <!-- </figure> -->
+    <!-- <h1>Múltiplos do Renatinho</h1> -->
     <Home />
   </main>
 </template>
@@ -26,7 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 h1 {
   margin: 20px auto;
@@ -34,6 +33,6 @@ h1 {
 }
 figure {
   margin: 0 auto;
-  width: 200px;
+  width: 400px;
 }
 </style>
