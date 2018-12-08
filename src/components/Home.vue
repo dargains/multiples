@@ -1,5 +1,5 @@
 <template>
-  <section class="main">
+  <section class="main" v-infinite-scroll="onScroll" infinite-scroll-distance="240">
     <ul class="grid">
       <ListItem v-for="(number, index) in numberList" :key="number" :number="number" :isFirst="!index" @handleInput="getNewNumber"/>
     </ul>
@@ -15,14 +15,20 @@ export default {
     ListItem
   },
   mounted() {
-    this.getMultiples(8, 1, 2000);
+    this.getMultiples(this.value, 1, this.range);
   },
   data() {
     return {
-      numberList: []
+      numberList: [],
+      range: 3000,
+      value: 8
     }
   },
   methods: {
+    onScroll() {
+      this.range += 1000;
+      this.getMultiples(this.value, 1, this.range);
+    },
     getMultiples(number, from, to) {
       const numberList = [];
       for (let i = from; i <= to; i++) {
@@ -32,7 +38,9 @@ export default {
     },
     getNewNumber(value) {
       if (!value) return;
-      this.getMultiples(value, 1, 2000);
+      this.range = 2000;
+      this.value = value;
+      this.getMultiples(this.value, 1, this.range);
     }
   }
 }
@@ -52,26 +60,26 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-row-gap: 0;
   grid-column-gap: 0;
   @include mq(0, 1280px) {
-    grid-template-columns: repeat(12, 1fr);
-  }
-  @include mq(0, 1024px) {
     grid-template-columns: repeat(10, 1fr);
   }
-  @include mq(0, 820px) {
+  @include mq(0, 1024px) {
     grid-template-columns: repeat(8, 1fr);
   }
-  @include mq(0, 658px) {
+  @include mq(0, 820px) {
     grid-template-columns: repeat(6, 1fr);
   }
-  @include mq(0, 496px) {
+  @include mq(0, 658px) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @include mq(0, 340px) {
+  @include mq(0, 496px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq(0, 340px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }

@@ -2,16 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Dargains" />
+    <meta name="description" content="A melhor App para encontrar múltiplos." />
+    <meta name="keywords" content="multiples, numbers" />
+    <meta name="theme-color" content="#98dfaf">
+    <link rel="manifest" href="/manifest.json">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Multiples" />
+    <meta property="og:description" content="A melhor App para encontrar múltiplos." />
+    <meta property="og:title" content="Multiples" />
+    <meta property="og:url" content="https://multiples.azurewebsites.net" />
+    <meta property="og:image" content="/share.jpg" />
+    <link rel="shortcut icon" href="/16x16.png">
+    <link href="/icons/16x16.png" rel="apple-touch-icon" sizes="16x16" />
+    <link href="/icons/32x32.png" rel="apple-touch-icon" sizes="32x32" />
+    <link href="/icons/48x48.png" rel="apple-touch-icon" sizes="48x48" />
+    <link href="/icons/128x128.png" rel="apple-touch-icon" sizes="128x128" />
+    <link href="/icons/167x167.png" rel="apple-touch-icon" sizes="167x167" />
+    <link href="/icons/180x180.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/icons/192x192.png" rel="apple-touch-icon" sizes="192x192" />
+    <link href="/icons/256x256.png" rel="apple-touch-icon" sizes="256x256" />
+    <link href="/icons/512x512.png" rel="apple-touch-icon" sizes="512x512" />
+    <link href="https://fonts.googleapis.com/css?family=Gudea:400,700" rel="stylesheet">
     <title>multiples</title>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but multiples doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="multiples"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('sw.js')
+          .then(function() { console.log('Multiples Service Worker v1.0 Registered'); });
+      }
+    </script>
   </body>
 </html>
