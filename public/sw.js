@@ -5,6 +5,7 @@ var filesToCache = [
   '16x16.png',
   'sw.js',
   'manifest.json',
+  'share.jpg',
   'css/app.css',
   'js/app.js',
   'js/app.js.map',

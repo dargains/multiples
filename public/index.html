@@ -7,14 +7,14 @@
     <meta name="description" content="A melhor App para encontrar múltiplos." />
     <meta name="keywords" content="multiples, numbers" />
     <meta name="theme-color" content="#98dfaf">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Multiples" />
     <meta property="og:description" content="A melhor App para encontrar múltiplos." />
     <meta property="og:title" content="Multiples" />
     <meta property="og:url" content="https://multiples.azurewebsites.net" />
-    <meta property="og:image" content="/share.jpg" />
-    <link rel="shortcut icon" href="/16x16.png">
+    <meta property="og:image" content="share.jpg" />
+    <link rel="shortcut icon" href="16x16.png">
     <link href="/icons/16x16.png" rel="apple-touch-icon" sizes="16x16" />
     <link href="/icons/32x32.png" rel="apple-touch-icon" sizes="32x32" />
     <link href="/icons/48x48.png" rel="apple-touch-icon" sizes="48x48" />
@@ -32,12 +32,5 @@
       <strong>We're sorry but multiples doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="multiples"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('sw.js')
-          .then(function() { console.log('Multiples Service Worker v1.0 Registered'); });
-      }
-    </script>
   </body>
 </html>

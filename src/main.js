@@ -11,3 +11,9 @@ Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
 }).$mount('#multiples')
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('sw.js')
+    .then(function() { console.log('Multiples Service Worker v1.0 Registered'); });
+}
