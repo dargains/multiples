@@ -26,21 +26,26 @@ export default {
   },
   methods: {
     onScroll() {
-      this.range += 1000;
+      this.range += this.value * 500;
       this.getMultiples(this.value, 1, this.range);
     },
     getMultiples(number, from, to) {
-      const numberList = [];
-      for (let i = from; i <= to; i++) {
-        i%number === 0 && numberList.push(i)
-      }
-      this.numberList = numberList;
+      return new Promise(resolve => {
+        const numberList = [];
+        for (let i = from; i <= to; i++) {
+          i%number === 0 && numberList.push(i)
+        }
+        this.numberList = numberList;
+        resolve();
+      });
     },
     getNewNumber(value) {
-      if (!value) return;
+      if (value === '0') return;
       this.range = 2000;
       this.value = value;
-      this.getMultiples(this.value, 1, this.range);
+      this.getMultiples(this.value, 1, this.range).then(() => {
+        if(document.querySelector('body').offsetHeight < window.innerHeight) this.onScroll();
+      })
     }
   }
 }
@@ -60,23 +65,23 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-row-gap: 0;
   grid-column-gap: 0;
   @include mq(0, 1280px) {
-    grid-template-columns: repeat(10, 1fr);
-  }
-  @include mq(0, 1024px) {
     grid-template-columns: repeat(8, 1fr);
   }
-  @include mq(0, 820px) {
+  @include mq(0, 1024px) {
     grid-template-columns: repeat(6, 1fr);
   }
-  @include mq(0, 658px) {
+  @include mq(0, 820px) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @include mq(0, 496px) {
+  @include mq(0, 658px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq(0, 496px) {
+    grid-template-columns: repeat(2, 1fr);
   }
   @include mq(0, 340px) {
     grid-template-columns: repeat(2, 1fr);

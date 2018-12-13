@@ -1,7 +1,13 @@
 <template lang="html">
   <li class="listItem" :class="{bold: boldList.includes(number), first: isFirst}">
     <label for="firstNumber" v-if="isFirst"><img src="../assets/pen.svg" alt="edit"></label>
-    <input type="number" ref="input" id="firstNumber" :value="number" @input="onInputChange" v-if="isFirst"/>
+    <input type="text" ref="input" maxlength="4" id="firstNumber" :value="number" @keypress="onInputChange" v-if="isFirst"/>
+    <div class="flip-container"  v-else-if="number === 666">
+      <div class="flipper">
+        <div class="front">{{number}}</div>
+        <div class="back"><img src="../assets/renato.jpg" alt=""></div>
+      </div>
+    </div>
     <p v-else>{{number}}</p>
   </li>
 </template>
@@ -17,7 +23,11 @@ export default {
     }
   },
   methods: {
-    onInputChange() {
+    onInputChange(event) {
+      if ((event.keyCode > 31 && (event.keyCode < 48 || event.keyCode > 57)) && event.keyCode !== 46) {
+        event.preventDefault();
+        return;
+      }
       clearTimeout(this.typingTimer);
       this.typingTimer = setTimeout(() => {
         this.$emit('handleInput', this.$refs.input.value)
@@ -68,5 +78,54 @@ export default {
   img {
     width: 100%;
   }
+}
+.flip-container {
+	perspective: 1000px;
+  display: inline-block;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+  min-height: 80px;
+  min-width: 80px;
+}
+
+.flip-container.selected .front {
+  color: red;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+  color: red;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
 }
 </style>

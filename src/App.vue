@@ -1,9 +1,5 @@
 <template>
   <main id="app">
-    <!-- <figure> -->
-      <!-- <img alt="Renato Miguel" src="./assets/renato.jpg"> -->
-    <!-- </figure> -->
-    <!-- <h1>Múltiplos do Renatinho</h1> -->
     <Home />
   </main>
 </template>
