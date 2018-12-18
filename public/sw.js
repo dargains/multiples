@@ -1,4 +1,4 @@
-var cacheName = 'Multiples v1.0';
+var cacheName = 'Multiples v1.5';
 var filesToCache = [
   '/',
   'index.html',

@@ -22,10 +22,12 @@ export default {
   align-items: center;
   justify-content: center;
   animation: splashAnimation 2s ease-out forwards;
+  -webkit-animation: splashAnimation 2s ease-out forwards;
   img {
     max-width: 400px;
     width: 100%;
     animation: imageAnimation 2s ease-out forwards;
+    -webkit-animation: imageAnimation 2s ease-out forwards;
   }
 }
 @keyframes imageAnimation {
@@ -33,20 +35,40 @@ export default {
     opacity: 0;
   }
   10% {
+    opacity: 0;
+  }
+  20% {
     opacity: 1;
   }
-  90% {
+  80% {
     opacity: 1;
   }
   100% {
     opacity: 0;
   }
 }
-@keyframes splashAnimation {
+@-webkit-keyframes imageAnimation {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes splashAnimation {
   0% {
     opacity: 1;
   }
-  90% {
+  80% {
     opacity: 1;
   }
   100% {
