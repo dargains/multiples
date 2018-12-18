@@ -1,16 +1,24 @@
 <template>
   <main id="app">
+    <Splash />
     <Home />
   </main>
 </template>
 
 <script>
 import Home from './components/Home.vue'
+import Splash from './components/Splash.vue'
 
 export default {
   name: 'app',
   components: {
-    Home
+    Home,
+    Splash
+  },
+  mounted() {
+    setTimeout(() => {
+      document.querySelector('body').style.overflow = 'visible auto';
+    }, 2000)
   }
 }
 </script>
@@ -22,6 +30,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+body {
+  overflow: hidden;
 }
 h1 {
   margin: 20px auto;

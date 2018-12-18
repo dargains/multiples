@@ -80,9 +80,9 @@ export default {
   @include mq(0, 658px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @include mq(0, 496px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  // @include mq(0, 496px) {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
   @include mq(0, 340px) {
     grid-template-columns: repeat(2, 1fr);
   }

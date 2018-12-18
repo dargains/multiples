@@ -1,5 +1,5 @@
 <template lang="html">
-  <li class="listItem" :class="{bold: boldList.includes(number), first: isFirst}">
+  <li class="listItem" :class="{bold: boldList.includes(number) || number === 666, first: isFirst}">
     <label for="firstNumber" v-if="isFirst"><img src="../assets/pen.svg" alt="edit"></label>
     <input type="text" ref="input" maxlength="4" id="firstNumber" :value="number" @keypress="onInputChange" v-if="isFirst"/>
     <div class="flip-container"  v-else-if="number === 666">
@@ -94,7 +94,8 @@ export default {
 }
 
 .flip-container.selected .front {
-  color: red;
+  font-weight: bold;
+  background-color: #222831;
 }
 
 /* flip speed goes here */
@@ -110,7 +111,6 @@ export default {
 	position: absolute;
 	top: 0;
 	left: 0;
-  color: red;
   padding: 0;
   display: flex;
   align-items: center;
